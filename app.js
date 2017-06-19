@@ -15,6 +15,14 @@ app.get('/lorem', function(req, res) {
   res.send(output);
 });
 
+app.get('/lorem/:paraNum', function(req, res) {
+  res.send(output = loremIpsum({
+    count: req.params.paraNum,
+    units: 'paragraphs',
+    format: 'html'
+  }));
+});
+
 app.listen(3000, function(){
   console.log('Successfully started express application!');
 });
